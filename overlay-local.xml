@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo quality="experimental" status="unofficial">
+    <name>sifiro-overlay-local</name>
+    <description>Ebuilds Personals</description>
+    <homepage>http://github.com/sifiro/sifiro-overlay</homepage>
+    <owner>
+      <email>sifiro@outlook.com</email>
+      <name>Sifiro</name>
+    </owner>
+    <source 
+type="git">git:///home/sifiro/git/sifiro-overlay</source>
+  </repo>
+</repositories>
