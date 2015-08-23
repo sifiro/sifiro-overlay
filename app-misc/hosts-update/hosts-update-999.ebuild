@@ -8,6 +8,7 @@ websites from working."
 HOMEPAGE="https://github.com/graysky2/hosts-update"
 inherit git-r3
 EGIT_REPO_URI="git://github.com/graysky2/hosts-update  https://github.com/graysky2/hosts-update.git"
+SLOT="0"
 LICENSE="MIT"
 KEYWORDS="~amd64 ~x86"
 DEPEND="net-misc/curl"
