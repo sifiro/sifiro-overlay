@@ -10,6 +10,6 @@
       <name>Sifiro</name>
     </owner>
     <source 
-type="git">git:///home/sifiro/git/sifiro-overlay</source>
+type="git">file:///home/sifiro/git/sifiro-overlay</source>
   </repo>
 </repositories>
