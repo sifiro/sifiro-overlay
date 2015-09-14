@@ -34,7 +34,7 @@ src_prepare() {
 }
 
 src_configure() {
-	epatch ${FILESDIR}/ncmpcpp-animelyrics.patch
+	epatch ${WORKDIR}/{$P}-animelyrics.patch
 	econf \
 		$(use_enable clock) \
 		$(use_enable outputs) \
