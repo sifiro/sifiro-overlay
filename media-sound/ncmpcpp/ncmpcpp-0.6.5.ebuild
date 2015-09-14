@@ -27,14 +27,13 @@ DEPEND="
 	${RDEPEND}
 	virtual/pkgconfig
 "
-
 src_prepare() {
 	sed -i -e '/^docdir/d' {,doc/}Makefile{.am,.in} || die
 	sed -i -e 's|COPYING||g' Makefile{.am,.in} || die
 }
 
 src_configure() {
-	epatch ${WORKDIR}/{$P}-animelyrics.patch
+	epatch ${FILESDIR}/{$P}-animelyrics.patch
 	econf \
 		$(use_enable clock) \
 		$(use_enable outputs) \
