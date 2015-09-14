@@ -1,0 +1,52 @@
+diff -urN ncmpcpp-0.6.5/src/lyrics_fetcher.cpp ncmpcpp-0.6.5-new/src/lyrics_fetcher.cpp
+--- ncmpcpp-0.6.5/src/lyrics_fetcher.cpp	2015-07-05 04:18:34.000000000 +0200
++++ ncmpcpp-0.6.5-new/src/lyrics_fetcher.cpp	2015-09-14 11:57:42.860167686 +0200
+@@ -39,6 +39,7 @@
+ 	new LyricwikiFetcher(),
+ 	new AzLyricsFetcher(),
+ 	new Sing365Fetcher(),
++	new AnimelyricsFetcher(),
+ 	new LyricsmaniaFetcher(),
+ 	new MetrolyricsFetcher(),
+ 	new JustSomeLyricsFetcher(),
+@@ -170,6 +171,18 @@
+ 
+ /**********************************************************************/
+ 
++bool AnimelyricsFetcher::isURLOk(const std::string &url)
++{
++        // Hack url from *.htm to *.txt text-only resource (print).
++        std::string *ptr;
++        ptr = (std::string*)(&url);
++        Replace(*ptr, ".htm", ".txt");
++        return url.find(getSiteKeyword()) != std::string::npos;
++}
++
++
++/**********************************************************************/
++
+ LyricsFetcher::Result GoogleLyricsFetcher::fetch(const std::string &artist, const std::string &title)
+ {
+ 	Result result;
+diff -urN ncmpcpp-0.6.5/src/lyrics_fetcher.h ncmpcpp-0.6.5-new/src/lyrics_fetcher.h
+--- ncmpcpp-0.6.5/src/lyrics_fetcher.h	2015-07-05 04:18:34.000000000 +0200
++++ ncmpcpp-0.6.5-new/src/lyrics_fetcher.h	2015-09-14 11:57:42.860167686 +0200
+@@ -74,6 +74,18 @@
+ 	const char *URL;
+ };
+ 
++struct AnimelyricsFetcher : public GoogleLyricsFetcher
++{
++        virtual const char *name() { return "animelyrics.com"; }
++
++        protected:
++                virtual const char *getSiteKeyword() { return "animelyrics"; }
++                virtual const char *getOpenTag() { return "-----\r\n"; }
++                virtual const char *getCloseTag() { return "\r\n----"; }
++
++                virtual bool isURLOk(const std::string &url);
++};
++
+ struct MetrolyricsFetcher : public GoogleLyricsFetcher
+ {
+ 	virtual const char *name() const OVERRIDE { return "metrolyrics.com"; }
