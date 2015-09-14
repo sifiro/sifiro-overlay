@@ -33,7 +33,7 @@ src_prepare() {
 }
 
 src_configure() {
-	epatch ${FILESDIR}/{$P}-animelyrics.patch
+	epatch ${FILESDIR}/$P-animelyrics.patch
 	econf \
 		$(use_enable clock) \
 		$(use_enable outputs) \
