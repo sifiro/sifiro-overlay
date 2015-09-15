@@ -9,6 +9,9 @@
 		<email>wired@gentoo.org</email>
 		<name>Alex Alexander</name>
 	</maintainer>
+	<maintainer>
+		<email>sifiro@outlook.com</email>
+		<name>Sifiro</email>
 	<use>
 		<flag name='clock'>Enable clock screen</flag>
 		<flag name='outputs'>Enable outputs screen</flag>
